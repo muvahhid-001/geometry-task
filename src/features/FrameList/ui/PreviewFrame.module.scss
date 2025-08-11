@@ -1,0 +1,48 @@
+.PreviewFrameList {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3125rem;
+  width: 100%;
+  max-width: 21.5625rem;
+}
+.PreviewFrameListBlock {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 5.625rem;
+  border-radius: 1.5625rem;
+  box-shadow: 0px 1px 8px 0px #0000001a;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.PreviewFrameListTitle {
+  max-width: 314px;
+  margin-left: 4.1875rem;
+  font-family: "Urbanist";
+  color: #3b4552;
+  font-size: 0.875rem;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+
+  &::after {
+    content: "··············································";
+    color: transparent;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.PreviewFrameListImage {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 59px;
+  height: 58px;
+  border-radius: 13px;
+}

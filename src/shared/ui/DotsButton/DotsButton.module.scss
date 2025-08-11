@@ -1,0 +1,19 @@
+.button {
+  padding: 0;
+  position: absolute;
+  background: transparent;
+  border: none;
+  display: flex;
+  gap: 2px;
+  cursor: pointer;
+  align-items: center;
+  right: 18.5px;
+  top: 9px;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: #b4b4b4;
+  border-radius: 50%;
+}

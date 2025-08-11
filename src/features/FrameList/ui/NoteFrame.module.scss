@@ -1,0 +1,40 @@
+.NoteFrameList {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3125rem;
+  width: 100%;
+  max-width: 21.5625rem;
+}
+
+.NoteFrameListBlock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: 4.25rem;
+  width: 100%;
+  border-radius: 1.5625rem;
+  justify-content: center;
+  box-shadow: 0px 1px 8px 0px #0000001a;
+}
+
+.NoteFrameListTitle {
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+
+  font-family: "Urbanist", sans-serif;
+  color: #3b4552;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+
+  &::after {
+    content: "·······································";
+    color: transparent;
+    pointer-events: none;
+    user-select: none;
+  }
+}
