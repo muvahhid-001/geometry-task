@@ -34,10 +34,15 @@ export const PreviewFrame = ({ blocks }: PreviewFrameProps) => {
             <p
               className={`${styles.PreviewFrameListTitle} ${
                 block.count > 10 ? styles.PreviewFrameListTitleSpicing : ""
+              } ${block.count === 0 ? styles.indicatorNone : ""} ${
+                block.count !== block.originalCount
+                  ? styles.PreviewFrameListTitleLow
+                  : ""
               }`}
             >
               {block.text}
             </p>
+
             <DotsButton />
             <Indicator
               count={block.count}

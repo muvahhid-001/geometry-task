@@ -5,6 +5,7 @@ import {
   selectBlocks,
   setText,
   setCount,
+  setOriginalCount,
 } from "@entities/Blocks/model/blockSlice";
 
 export const DevControls = () => {
@@ -27,18 +28,30 @@ export const DevControls = () => {
       let value = e.target.value;
       if (value === "") {
         setCountInput("");
-        blocks.forEach((block) =>
-          dispatch(setCount({ id: block.id, count: 0 }))
-        );
+        blocks.forEach((block) => {
+          dispatch(setCount({ id: block.id, count: 0 }));
+          dispatch(setOriginalCount({ id: block.id, originalCount: 0 }));
+        });
         return;
       }
-      let num = Number(value);
-      if (isNaN(num)) return;
-      if (num > 9999) num = 9999;
-      setCountInput(String(num));
-      blocks.forEach((block) =>
-        dispatch(setCount({ id: block.id, count: num }))
-      );
+      if (value.startsWith("+")) {
+        let num = Number(value.slice(1));
+        if (isNaN(num)) return;
+        if (num > 9999) num = 9999;
+        setCountInput(value);
+        blocks.forEach((block) =>
+          dispatch(setCount({ id: block.id, count: num }))
+        );
+      } else {
+        let num = Number(value);
+        if (isNaN(num)) return;
+        if (num > 9999) num = 9999;
+        setCountInput(String(num));
+        blocks.forEach((block) => {
+          dispatch(setCount({ id: block.id, count: num }));
+          dispatch(setOriginalCount({ id: block.id, originalCount: num }));
+        });
+      }
     },
     [blocks, dispatch]
   );
@@ -60,7 +73,7 @@ export const DevControls = () => {
       </div>
       <div style={{ flex: 1 }}>
         <input
-          type="number"
+          type="text"
           value={countInput}
           onChange={handleCountChangeAll}
           placeholder="Новое значение count"

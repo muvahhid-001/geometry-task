@@ -18,9 +18,8 @@
 }
 
 .PreviewFrameListTitle {
-  max-width: 314px;
   margin-left: 4.1875rem;
-  font-family: "Urbanist";
+  font-family: "Urbanist", sans-serif;
   color: #3b4552;
   font-size: 0.875rem;
   line-height: 140%;
@@ -31,7 +30,7 @@
   white-space: normal;
 
   &::after {
-    content: "················";
+    content: "·············";
     color: transparent;
     pointer-events: none;
     user-select: none;
@@ -39,7 +38,10 @@
 }
 
 .PreviewFrameListTitleSpicing::after {
-  content: "··············································";
+  content: "·····················";
+}
+.PreviewFrameListTitleLow::after {
+  content: "··························";
 }
 
 .PreviewFrameListImage {
@@ -49,4 +51,7 @@
   width: 59px;
   height: 58px;
   border-radius: 13px;
+}
+.indicatorNone::after {
+  content: "";
 }

@@ -20,6 +20,8 @@
 }
 
 .NoteFrameListTitle {
+  white-space: pre;
+  font-family: monospace;
   margin: 0;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -38,5 +40,15 @@
   }
 }
 .NoteFrameListTitleSpicing::after {
-  content: "··································";
+  content: "··············································";
+}
+
+.NoteFrameListTitleSpicingLow::after {
+  content: "······················";
+}
+.NoteFrameListTitleSpicingHight::after {
+  content: "···························";
+}
+.indicatorNone::after {
+  content: "";
 }

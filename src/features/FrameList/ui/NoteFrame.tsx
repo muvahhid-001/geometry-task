@@ -29,11 +29,23 @@ export const NoteFrame = ({ blocks }: NoteFrameProps) => {
           <div key={block.id} className={styles.NoteFrameListBlock}>
             <p
               className={`${styles.NoteFrameListTitle} ${
-                block.count > 10 ? styles.NoteFrameListTitleSpicing : ""
+                block.count > 999
+                  ? styles.NoteFrameListTitleSpicingHight
+                  : block.count > 99
+                  ? styles.NoteFrameListTitleSpicingLow
+                  : block.count > 10
+                  ? styles.NoteFrameListTitleSpicing
+                  : ""
+              } ${block.count === 0 ? styles.indicatorNone : ""} ${
+                block.originalCount !== undefined &&
+                block.count !== block.originalCount
+                  ? styles.NoteFrameListTitleSpicingLow
+                  : ""
               }`}
             >
               {block.text}
             </p>
+
             <DotsButton />
 
             <Indicator
