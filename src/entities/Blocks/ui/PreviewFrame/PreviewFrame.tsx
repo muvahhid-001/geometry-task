@@ -1,22 +1,14 @@
-import styles from "./PreviewFrame.module.scss";
 import { DotsButton } from "@/shared/ui/DotsButton/DotsButton";
 import { Indicator } from "@/shared/ui/Indicator/Indicator";
-import { useDispatch } from "react-redux";
-import { useCallback } from "react";
-import { setCount } from "@/entities/Blocks/model/blockSlice";
+import { useHandleCountChange } from "./hooks/useHandleCountChange";
+import { getTitleClass } from "./lib/getTitleClass";
 
 import type { PreviewFrameProps } from "@/entities/Blocks/model/types";
 
-export const PreviewFrame = ({ blocks }: PreviewFrameProps) => {
-  const dispatch = useDispatch();
+import styles from "./PreviewFrame.module.scss";
 
-  const handleCountChange = useCallback(
-    (id: string, newCount: number) => {
-      if (newCount < 0) return;
-      dispatch(setCount({ id, count: newCount }));
-    },
-    [dispatch]
-  );
+export const PreviewFrame = ({ blocks }: PreviewFrameProps) => {
+  const handleCountChange = useHandleCountChange();
 
   return (
     <div className={styles.PreviewFrameList}>
@@ -24,6 +16,8 @@ export const PreviewFrame = ({ blocks }: PreviewFrameProps) => {
         const isChanged =
           block.originalCount !== undefined &&
           block.count !== block.originalCount;
+        const titleClass = getTitleClass(block.count, block.originalCount);
+
         return (
           <div key={block.id} className={styles.PreviewFrameListBlock}>
             <img
@@ -32,13 +26,7 @@ export const PreviewFrame = ({ blocks }: PreviewFrameProps) => {
               className={styles.PreviewFrameListImage}
             />
             <p
-              className={`${styles.PreviewFrameListTitle} ${
-                block.count > 10 ? styles.PreviewFrameListTitleSpicing : ""
-              } ${block.count === 0 ? styles.indicatorNone : ""} ${
-                block.count !== block.originalCount
-                  ? styles.PreviewFrameListTitleLow
-                  : ""
-              }`}
+              className={`${styles.PreviewFrameListTitle} ${styles[titleClass]}`}
             >
               {block.text}
             </p>

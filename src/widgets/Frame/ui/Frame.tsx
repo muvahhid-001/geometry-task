@@ -1,10 +1,10 @@
-import { NoteFrame } from "./NoteFrame";
-import { PreviewFrame } from "./PreviewFrame";
+import { NoteFrame } from "@entities/Blocks/ui/NoteFrame/NoteFrame";
+import { PreviewFrame } from "@entities/Blocks/ui/PreviewFrame/PreviewFrame";
 import { useAppSelector } from "@/shared/hooks";
 import { selectBlocks } from "@entities/Blocks/model/blockSlice";
 import { ErrorBoundary } from "@/shared/ui/ErrorBoundary/ErrorBoundary";
 import { Fallback } from "@/shared/ui/Fallback/Fallback";
-import { DevControls } from "./DevControl";
+import { DevControls } from "@features/DevControl/DevControl";
 
 import styles from "./Frame.module.scss";
 
