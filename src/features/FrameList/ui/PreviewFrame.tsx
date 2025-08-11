@@ -31,12 +31,19 @@ export const PreviewFrame = ({ blocks }: PreviewFrameProps) => {
               alt="Фото Заметки"
               className={styles.PreviewFrameListImage}
             />
-            <p className={styles.PreviewFrameListTitle}>{block.text}</p>
+            <p
+              className={`${styles.PreviewFrameListTitle} ${
+                block.count > 10 ? styles.PreviewFrameListTitleSpicing : ""
+              }`}
+            >
+              {block.text}
+            </p>
             <DotsButton />
             <Indicator
               count={block.count}
               isActive={isChanged}
               onClick={() => handleCountChange(block.id, block.count + 1)}
+              right={"12px"}
             />
           </div>
         );

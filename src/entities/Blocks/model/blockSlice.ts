@@ -19,7 +19,7 @@ export type Frame = {
 const initialState: Frame[] = [
   {
     id: "block-1",
-    text: "quenching your thirstsa asd asd asdasdasd sdsd sss sdfsdfsdfsdfsdf sdasd",
+    text: "quenching your thirst. It plays a cru",
     image: "/images/image.png",
     content: {
       id: "content-1",
@@ -31,7 +31,7 @@ const initialState: Frame[] = [
   },
   {
     id: "block-2",
-    text: "Drinking water isn't just ter isn' ter isn' ter isn' about't just about quenching ",
+    text: "Drinking water isn't just about quenching",
     image: "",
     content: {
       id: "content-2",

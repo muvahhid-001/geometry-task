@@ -31,9 +31,12 @@
   letter-spacing: -0.01em;
 
   &::after {
-    content: "·······································";
+    content: "·············";
     color: transparent;
     pointer-events: none;
     user-select: none;
   }
+}
+.NoteFrameListTitleSpicing::after {
+  content: "··································";
 }

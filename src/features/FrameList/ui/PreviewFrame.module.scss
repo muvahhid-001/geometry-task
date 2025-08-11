@@ -31,11 +31,15 @@
   white-space: normal;
 
   &::after {
-    content: "··············································";
+    content: "················";
     color: transparent;
     pointer-events: none;
     user-select: none;
   }
+}
+
+.PreviewFrameListTitleSpicing::after {
+  content: "··············································";
 }
 
 .PreviewFrameListImage {
